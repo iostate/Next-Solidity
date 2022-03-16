@@ -11,7 +11,7 @@ const compiledFactory = require("./build/CampaignFactory.json");
 const provider = new HDWalletProvider(
   process.env.MNEMONIC,
   // "https://rinkeby.infura.io/orDImgKRzwNrVCDrAk5Q"
-  "https://rinkeby.infura.io/v3/749004f5a9b84dae8b7adb6bc84b6433"
+  process.env.RINKEBY_INFURA_ENDPOINT
 );
 const web3 = new Web3(provider);
 
@@ -22,7 +22,9 @@ const deploy = async () => {
 
   // Notice above we were compiling on the fly, in the previous lottery contract
   // Now we are going to parse the already compiled campaignFactory interface
-  const result = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
+  const result = await new web3.eth.Contract(
+    JSON.parse(compiledFactory.interface)
+  )
     .deploy({ data: compiledFactory.bytecode })
     .send({ gas: "1000000", from: accounts[0] });
   // console.log(interface)
