@@ -1,5 +1,10 @@
+Steps to redeploy (lesson 201):
+node compile.js
+node deploy.js => will output the Contract's new home (address)
+Insert this into ethereum/factory.js
+
 Campaign Contract Deployed to: 
-0x4f28aE5F214EFe242309B60B1aF0C6be8399D397
+0x246f670d7443a97b78367DDBFd39DeB5AdD8d0e4
 
 March 16 2022
 
@@ -15,6 +20,9 @@ Key Takeaways:
    Else, use Web3.providers.HttpProvider(<BLOCKCHAIN_ENDPOINT>)
 3. If you are simply querying the blockchain, use the .call() method.
    If you are attempting to send data, use the .send() method. 
+4. The way that we interact with the contract is using the compiled CampaignFactory.json file.
+   In factory.js, we tie the .json file with the instance of the Contract using the address
+   where the Contract lives at.
 
 
 

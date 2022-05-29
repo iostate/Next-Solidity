@@ -20,9 +20,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
   });
   web3 = new Web3(window.ethereum);
 } else {
-  const provider = new Web3.providers.HttpProvider(
-    "https://rinkeby.infura.io/v3/749004f5a9b84dae8b7adb6bc84b6433"
-  );
+  const provider = new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/564c9e0b4a174a3f947a399674a84827");
   web3 = new Web3(provider);
 }
 export default web3;
